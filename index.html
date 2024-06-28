@@ -34,14 +34,16 @@
             font-size: 18px;
             margin: 10px 0;
         }
-        .whatsapp-button {
-            background-color: #25D366;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
+        .icon-container {
             margin-top: 20px;
+        }
+        .icon-container a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .icon-container img {
+            width: 40px;
+            height: 40px;
         }
         .footer {
             position: absolute;
@@ -64,7 +66,14 @@
     <div class="container">
         <h1>We're Improving for You!</h1>
         <p>We’re upgrading our website for a better experience. Need help? Chat with us!</p>
-        <a href="https://wa.me/+447441442330" class="whatsapp-button">WhatsApp</a>
+        <div class="icon-container">
+            <a href="https://wa.me/+447441442330" target="_blank">
+                <img src="https://www.svgrepo.com/show/349563/whatsapp.svg" alt="WhatsApp">
+            </a>
+            <a href="https://t.me/num_era" target="_blank">
+                <img src="https://www.svgrepo.com/show/349527/telegram.svg" alt="Telegram">
+            </a>
+        </div>
     </div>
     
     <div class="tradingview-widget-container">

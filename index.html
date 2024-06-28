@@ -13,7 +13,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             font-family: 'THICCCBOI', sans-serif;
             background-color: #000000; /* Change this to your desired background color */
@@ -25,10 +25,13 @@
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20%; /* Adjust margin to push the footer down */
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
         }
         .container h1 {
             font-size: 24px;
+            margin: 0;
         }
         .container p {
             font-size: 18px;
@@ -36,9 +39,11 @@
         }
         .icon-container {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         .icon-container a {
-            margin: 0 10px;
             display: inline-block;
         }
         .icon-container img {
@@ -46,19 +51,22 @@
             height: 40px;
         }
         .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 97%;
+            width: 90%;
+            max-width: 600px;
             text-align: justify;
             font-size: 12px;
-        }
-        .footer img {
-            width: 20px;
-            height: 20px;
-            margin: 0 5px;
+            margin-bottom: 20px;
         }
         .tradingview-widget-container {
             margin: 20px 0;
+            width: 90%;
+            max-width: 600px;
+        }
+        @media (max-width: 600px) {
+            .container, .footer, .tradingview-widget-container {
+                width: 100%;
+                margin: 10px;
+            }
         }
     </style>
 </head>
@@ -80,59 +88,107 @@
         <div class="tradingview-widget-container__widget"></div>
         <div class="tradingview-widget-copyright">
             <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                <span class="blue-text"></span>
+                <span class="blue-text">Track all markets on TradingView</span>
             </a>
         </div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
         {
         "symbols": [
             {
-            "proName": "BITSTAMP:BTCUSD",
-            "title": "Bitcoin"
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "Bitcoin"
             },
             {
-            "proName": "BITSTAMP:ETHUSD",
-            "title": "Ethereum"
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "Ethereum"
             },
             {
-            "description": "USDT",
-            "proName": "COINBASE:USDTUSD"
+              "description": "Tether",
+              "proName": "COINBASE:USDTUSD"
             },
             {
-            "description": "BNB",
-            "proName": "BINANCE:BNBUSDT"
+              "description": "BNB",
+              "proName": "BINANCE:BNBUSD"
             },
             {
-            "description": "Solana",
-            "proName": "BINANCE:SOLUSDT"
+              "description": "Solana",
+              "proName": "COINBASE:SOLUSD"
             },
             {
-            "description": "USDC",
-            "proName": "BITSTAMP:USDCUSD"
+              "description": "USDC",
+              "proName": "BITSTAMP:USDCUSD"
             },
             {
-            "description": "XRP",
-            "proName": "BINANCE:XRPUSDT"
+              "description": "XRP",
+              "proName": "BITSTAMP:XRPUSD"
             },
             {
-            "description": "Ton",
-            "proName": "BYBIT:TONUSDT"
+              "description": "Toncoin",
+              "proName": "CRYPTO:TONUSD"
             },
             {
-            "description": "Doge",
-            "proName": "BINANCE:DOGEUSDT"
+              "description": "Doge",
+              "proName": "COINBASE:DOGEUSD"
             },
             {
-            "description": "Cardano",
-            "proName": "BINANCE:ADAUSDT"
+              "description": "Cardano",
+              "proName": "BINANCE:ADAUSD"
+            },
+            {
+              "description": "Polygon",
+              "proName": "COINBASE:MATICUSD"
+            },
+            {
+              "description": "Litecoin",
+              "proName": "COINBASE:LTCUSD"
+            },
+            {
+              "description": "Polkadot",
+              "proName": "COINBASE:DOTUSD"
+            },
+            {
+              "description": "Avalanche",
+              "proName": "COINBASE:AVAXUSD"
+            },
+            {
+              "description": "Wrapped Bitcoin",
+              "proName": "COINBASE:WBTCUSD"
+            },
+            {
+              "description": "Bitcoin Cash",
+              "proName": "COINBASE:BCHUSD"
+            },
+            {
+              "description": "Near Protocol",
+              "proName": "COINBASE:NEARUSD"
+            },
+            {
+              "description": "Chainlink",
+              "proName": "COINBASE:LINKUSD"
+            },
+            {
+              "description": "Shiba Inu",
+              "proName": "COINBASE:SHIBUSD"
+            },
+            {
+              "description": "Uniswap",
+              "proName": "COINBASE:UNIUSD"
+            },
+            {
+              "description": "DAI",
+              "proName": "BITSTAMP:DAIUSD"
+            },
+            {
+              "description": "Internet Computer",
+              "proName": "COINBASE:ICPUSD"
             }
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": true,
-        "largeChartUrl": "https://wa.me/+447441442330",
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": true,
+          "largeChartUrl": "https://wa.me/+447441442330",
+          "displayMode": "compact",
+          "colorTheme": "dark",
+          "locale": "en"
         }
         </script>
     </div>

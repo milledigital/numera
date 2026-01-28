@@ -13,67 +13,237 @@
     />
 
     <style>
+      :root {
+        --text: #0f1115;
+        --muted: rgba(15, 17, 21, 0.72);
+        --muted2: rgba(15, 17, 21, 0.55);
+        --border: rgba(15, 17, 21, 0.12);
+        --card: rgba(255, 255, 255, 0.82);
+        --shadow: 0 18px 55px rgba(0, 0, 0, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       html,
       body {
         margin: 0;
         padding: 0;
         font-family: "Inter", sans-serif;
+        color: var(--text);
         background: #fff;
-        color: #111;
       }
 
+      /* Soft background with subtle glow */
       body {
         min-height: 100svh; /* iOS Safari-safe viewport */
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 24px;
         text-align: center;
+
+        background:
+          radial-gradient(900px 500px at 20% 15%, rgba(40, 110, 255, 0.10), transparent 55%),
+          radial-gradient(700px 420px at 85% 25%, rgba(0, 210, 170, 0.10), transparent 55%),
+          radial-gradient(900px 550px at 50% 90%, rgba(255, 160, 60, 0.08), transparent 60%),
+          linear-gradient(#ffffff, #fbfbfd);
       }
 
+      /* Centered card */
       .wrapper {
-        padding: 24px;
-        transform: translateY(-4vh); /* visually centered on mobile */
         width: 100%;
-        max-width: 720px;
+        max-width: 820px;
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle top accent line */
+      .wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 3px;
+        background: linear-gradient(90deg, rgba(40,110,255,0.9), rgba(0,210,170,0.85), rgba(255,160,60,0.8));
+        opacity: 0.9;
       }
 
       .logo {
         width: min(240px, 60vw);
         height: auto;
         display: block;
-        margin: 0 auto 22px auto;
+        margin: 6px auto 18px auto;
+        filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.10));
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(28px, 5vw, 40px);
+        font-size: clamp(30px, 5vw, 44px);
         font-weight: 700;
         letter-spacing: 0.2px;
       }
 
       .sub {
         margin: 12px 0 0 0;
-        font-size: clamp(14px, 2.5vw, 18px);
-        line-height: 1.4;
-        opacity: 0.9;
+        font-size: clamp(14px, 2.4vw, 18px);
+        line-height: 1.5;
+        color: var(--muted);
       }
 
-      .coming {
-        margin: 28px 0;
-        font-size: clamp(16px, 2.6vw, 20px);
+      /* "coming soon" pill */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0 10px 0;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.75);
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(0, 210, 170, 0.95);
+        box-shadow: 0 0 0 6px rgba(0, 210, 170, 0.14);
+      }
+
+      /* Features section */
+      .features {
+        margin: 18px auto 0 auto;
+        max-width: 680px;
+        text-align: left;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.65);
+      }
+
+      .features h2 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        font-weight: 700;
         letter-spacing: 0.6px;
-        opacity: 0.9;
+        text-transform: uppercase;
+        color: var(--muted2);
+      }
+
+      .features ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .features li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .check {
+        flex: 0 0 auto;
+        margin-top: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: rgba(40, 110, 255, 0.10);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        color: rgba(40, 110, 255, 0.95);
+      }
+
+      /* Contact row */
+      .contact {
+        margin: 18px 0 0 0;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       a {
         color: inherit;
         text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        padding-bottom: 2px;
       }
 
-      a:hover {
-        border-bottom-color: rgba(0, 0, 0, 0.6);
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.75);
+        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+        min-width: 170px;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(15, 17, 21, 0.22);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .btn small {
+        display: block;
+        font-size: 12px;
+        color: var(--muted2);
+        line-height: 1.1;
+      }
+
+      .btn span {
+        display: block;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      /* Footer legal */
+      footer {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        text-align: left;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      footer strong {
+        color: rgba(15, 17, 21, 0.80);
+        font-weight: 700;
+      }
+
+      @media (max-width: 520px) {
+        .wrapper {
+          padding: 22px;
+          border-radius: 18px;
+        }
+        .features {
+          padding: 12px 14px;
+        }
+        footer {
+          text-align: left;
+        }
       }
     </style>
 
@@ -119,16 +289,86 @@
       </div>
     </noscript>
 
-    <div class="wrapper">
+    <main class="wrapper" role="main" aria-label="Numera Capital">
       <!-- change src to your file name/path -->
       <img class="logo" src="logo.png" alt="Numera Capital logo" />
 
       <h1>Numera Capital</h1>
       <p class="sub">Directional Multi-Asset Investment Management</p>
 
-      <p class="coming">coming soon...</p>
+      <div class="pill" aria-label="Status">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Coming Soon</span>
+      </div>
 
-      <p><a href="mailto:hello@numera.cc">hello@numera.cc</a></p>
-    </div>
+      <div class="contact" aria-label="Contact">
+        <a class="btn" href="mailto:hello@numera.cc" aria-label="Email Numera Capital">
+          <div>
+            <small>Contact</small>
+            <span>hello@numera.cc</span>
+          </div>
+        </a>
+
+        <a class="btn" href="#" onclick="return false;" aria-disabled="true" title="Launching soon">
+          <div>
+            <small>Updates</small>
+            <span>JAN'26: New Fund Launch In Progress</span>
+          </div>
+        </a>
+      </div>
+
+      <footer aria-label="Legal disclaimer">
+        <p>
+          <strong>Important Notice / Disclaimer:</strong> This website and its contents are provided solely for
+          general informational and illustrative purposes. This site is not complete and may be changed, updated,
+          corrected, or removed at any time without notice.
+        </p>
+
+        <p>
+          Nothing on this website constitutes, or should be construed as, (i) an offer to sell, or a solicitation
+          of an offer to buy, any securities or financial instruments; (ii) investment, legal, tax, accounting, or
+          other professional advice; (iii) a recommendation, endorsement, or suitability determination regarding
+          any investment, strategy, or transaction; or (iv) an invitation to engage in any investment activity.
+        </p>
+
+        <p>
+          Any products or services referenced (if any) are not offered to any person in any jurisdiction where
+          such offer, solicitation, purchase, or sale would be unlawful under applicable laws or regulations, or
+          would require registration, licensing, or authorization. Access to this website may be restricted by
+          laws and regulations in certain jurisdictions; persons who access this site are responsible for
+          informing themselves about and observing any such restrictions.
+        </p>
+
+        <p>
+          Investing involves substantial risk, including the possible loss of principal. Past performance is not
+          indicative of future results. Hypothetical, simulated, or illustrative information (if any) may not
+          reflect actual trading and may be subject to limitations and assumptions. No representation is made
+          that any investment strategy will achieve its objectives or avoid losses.
+        </p>
+
+        <p>
+          To the maximum extent permitted by applicable law, Numera Capital and its affiliates disclaim all
+          liability for any loss, damage, cost, or expense (direct or indirect) arising out of or related to any
+          use of, reliance upon, or inability to use this website or its contents. All information is provided
+          “as is” and without warranties of any kind, whether express or implied, including but not limited to
+          warranties of accuracy, completeness, non-infringement, merchantability, and fitness for a particular
+          purpose.
+        </p>
+
+        <p>
+          Communications via email or this website do not create a client relationship, fiduciary relationship,
+          or advisory relationship. Do not send confidential or time-sensitive information through this website.
+        </p>
+
+        <p style="margin-bottom: 0">
+          © <span id="y"></span> Numera Capital. All rights reserved.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      // Tiny helper for the footer year (optional)
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

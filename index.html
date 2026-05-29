@@ -1,288 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Numera Capital</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Numera Capital</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --white: #ffffff;
-      --night: #070b2e;
-      --black: #050505;
-    }
+<style>
+:root {
+  --night: #070B2E;
+  --black: #050505;
+  --white: #ffffff;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--white);
-      color: var(--night);
-      font-family: "Inter", "Noto Sans", Arial, sans-serif;
-    }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--night);
+  font-family: "Inter", sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-    }
+body {
+  min-height: 100vh;
+}
 
-    main {
-      min-height: 100vh;
-      padding: 42px 6vw 34px;
-      display: flex;
-      flex-direction: column;
-    }
+main {
+  min-height: 100vh;
+  padding: 42px 6vw 34px;
+  display: flex;
+  flex-direction: column;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
 
-    .status {
-      color: rgba(7, 11, 46, 0.45);
-    }
+.status {
+  color: rgba(7, 11, 46, .45);
+}
 
-    .hero {
-      width: 100%;
-      margin-top: 24vh;
-    }
+.hero {
+  width: 100%;
+  margin-top: 24vh;
+}
 
-    h1 {
-      margin: 0;
-      font-size: clamp(72px, 11vw, 155px);
-      line-height: 0.9;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--night);
-    }
+h1 {
+  margin: 0;
+  font-size: clamp(72px, 11vw, 155px);
+  line-height: .9;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
-    /* FULL WIDTH RULE */
-    .rule {
-      width: 100%;
-      height: 1px;
-      background: rgba(7, 11, 46, 0.16);
-      margin: 56px 0 40px;
-    }
+.rule {
+  width: 100%;
+  height: 1px;
+  background: rgba(7, 11, 46, .16);
+  margin: 56px 0 40px;
+}
 
-    .main-text {
-      max-width: 900px;
-      margin: 0;
-      font-size: clamp(30px, 3.5vw, 50px);
-      line-height: 1.12;
-      font-weight: 400;
-      letter-spacing: -0.045em;
-      color: var(--night);
-    }
+.main-text {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(30px, 3.5vw, 50px);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -.045em;
+}
 
-    .contact {
-      margin-top: 90px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 36px;
-      font-size: 16px;
-      color: var(--black);
-    }
+.contact {
+  margin-top: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  font-size: 16px;
+  color: var(--black);
+}
 
-    .contact div {
-      line-height: 1.6;
-    }
+.contact div {
+  line-height: 1.6;
+}
 
-    .contact a {
-      color: var(--black);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(5, 5, 5, 0.25);
-      padding-bottom: 3px;
-    }
+.contact a {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(5, 5, 5, .25);
+  padding-bottom: 3px;
+}
 
-    /* REDUCED BY ~50% */
-    .spacer {
-      height: 10vh;
-    }
+.spacer {
+  height: 10vh;
+}
 
-    /* FULL WIDTH DISCLAIMER */
-    .disclaimer {
-      width: 100%;
-      border-top: 1px solid rgba(7, 11, 46, 0.16);
-      padding-top: 34px;
+.disclaimer {
+  width: 100%;
+  border-top: 1px solid rgba(7, 11, 46, .16);
+  padding-top: 32px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: rgba(5, 5, 5, .62);
+}
 
-      column-count: 2;
-      column-gap: 72px;
+.disclaimer strong {
+  color: rgba(5, 5, 5, .85);
+  font-weight: 700;
+}
 
-      font-size: 13px;
-      line-height: 1.78;
-      color: rgba(5, 5, 5, 0.64);
-    }
+footer {
+  width: 100%;
+  margin-top: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(7, 11, 46, .48);
+}
 
-    .disclaimer p {
-      margin: 0 0 18px;
-      break-inside: avoid;
-    }
+/* MOBILE ONLY */
+@media (max-width: 760px) {
+  main {
+    padding: 24px 22px 24px;
+  }
 
-    .disclaimer strong {
-      color: rgba(5, 5, 5, 0.85);
-      font-weight: 700;
-    }
+  header {
+    font-size: 10px;
+    letter-spacing: .24em;
+  }
 
-    footer {
-      width: 100%;
-      margin-top: 52px;
+  .hero {
+    margin-top: 10vh;
+  }
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  h1 {
+    font-size: clamp(54px, 18vw, 82px);
+    letter-spacing: .05em;
+  }
 
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(7, 11, 46, 0.48);
-    }
+  .rule {
+    margin: 38px 0 28px;
+  }
 
-    /* MOBILE */
-    @media (max-width: 760px) {
-      main {
-        padding: 24px 22px 24px;
-      }
+  .main-text {
+    font-size: 28px;
+    line-height: 1.16;
+  }
 
-      header {
-        font-size: 10px;
-        letter-spacing: 0.24em;
-      }
+  .contact {
+    display: block;
+    margin-top: 56px;
+    font-size: 15px;
+  }
 
-      .hero {
-        margin-top: 10vh;
-      }
+  .contact div {
+    margin-bottom: 18px;
+  }
 
-      h1 {
-        font-size: clamp(54px, 18vw, 82px);
-        letter-spacing: 0.05em;
-      }
+  .spacer {
+    height: 13vh;
+  }
 
-      .rule {
-        margin: 38px 0 28px;
-      }
+  .disclaimer {
+    padding-top: 30px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
 
-      .main-text {
-        font-size: 28px;
-        line-height: 1.16;
-      }
+  footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 9px;
+    letter-spacing: .12em;
+    line-height: 1.4;
+  }
 
-      .contact {
-        display: block;
-        margin-top: 42px;
-        font-size: 15px;
-      }
-
-      .contact div {
-        margin-bottom: 16px;
-      }
-
-      /* REDUCED BY ~50% */
-      .spacer {
-        height: 6vh;
-      }
-
-      /* BIGGER DISCLAIMER */
-      .disclaimer {
-        column-count: 1;
-        font-size: 14px;
-        line-height: 1.75;
-        padding-top: 28px;
-      }
-
-      /* LEFT + RIGHT SAME LINE */
-      footer {
-        margin-top: 42px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        font-size: 10px;
-        letter-spacing: 0.14em;
-        line-height: 1.5;
-      }
-
-      footer div:last-child {
-        text-align: right;
-      }
-    }
-  </style>
+  footer div:last-child {
+    text-align: right;
+  }
+}
+</style>
 </head>
 
 <body>
-  <main>
-    <header>
-      <div>NUMERA</div>
-      <div class="status">CAPITAL</div>
-    </header>
+<main>
 
-    <section class="hero">
-      <h1>NUMERA</h1>
+<header>
+  <div>NUMERA</div>
+  <div class="status">CAPITAL</div>
+</header>
 
-      <div class="rule"></div>
+<section class="hero">
+  <h1>NUMERA</h1>
 
-      <p class="main-text">
-        Private investment firm focused on selective, risk-governed opportunities across liquid public markets.
-      </p>
+  <div class="rule"></div>
 
-      <div class="contact">
-        <div>
-          Email:
-          <a href="mailto:hello@numera.cc">hello@numera.cc</a>
-        </div>
+  <p class="main-text">
+    Private investment firm focused on selective, risk-governed opportunities across liquid public markets.
+  </p>
 
-        <div>
-          Phone:
-          <a href="tel:+19179009052">+1 (917) 900 90 52</a>
-        </div>
-      </div>
-    </section>
+  <div class="contact">
+    <div>Email: <a href="mailto:hello@numera.cc">hello@numera.cc</a></div>
+    <div>Phone: <a href="tel:+19179009052">+1 (917) 900 90 52</a></div>
+  </div>
+</section>
 
-    <div class="spacer"></div>
+<div class="spacer"></div>
 
-    <section class="disclaimer">
-      <p>
-        <strong>Important Notice / Disclaimer:</strong>
-        This website and its contents are provided solely for general informational and illustrative purposes. This site is not complete and may be changed, updated, corrected, or removed at any time without notice.
-      </p>
+<section class="disclaimer">
+  <strong>Important Notice / Disclaimer:</strong>
+  This website and its contents are provided solely for general informational and illustrative purposes. This site is not complete and may be changed, updated, corrected, or removed at any time without notice. Nothing on this website constitutes, or should be construed as, (i) an offer to sell, or a solicitation of an offer to buy, any securities or financial instruments; (ii) investment, legal, tax, accounting, or other professional advice; (iii) a recommendation, endorsement, or suitability determination regarding any investment, strategy, or transaction; or (iv) an invitation to engage in any investment activity. Any products or services referenced, if any, are not offered to any person in any jurisdiction where such offer, solicitation, purchase, or sale would be unlawful under applicable laws or regulations, or would require registration, licensing, or authorization. Access to this website may be restricted by laws and regulations in certain jurisdictions; persons who access this site are responsible for informing themselves about and observing any such restrictions. Investing involves substantial risk, including the possible loss of principal. Past performance is not indicative of future results. Hypothetical, simulated, or illustrative information, if any, may not reflect actual trading and may be subject to limitations and assumptions. No representation is made that any investment strategy will achieve its objectives or avoid losses. To the maximum extent permitted by applicable law, Numera Capital and its affiliates disclaim all liability for any loss, damage, cost, or expense arising out of or related to any use of, reliance upon, or inability to use this website or its contents. All information is provided "as is" and without warranties of any kind. Communications via email or this website do not create a client relationship, fiduciary relationship, or advisory relationship. Do not send confidential or time-sensitive information through this website.
+</section>
 
-      <p>
-        Nothing on this website constitutes, or should be construed as, (i) an offer to sell, or a solicitation of an offer to buy, any securities or financial instruments; (ii) investment, legal, tax, accounting, or other professional advice; (iii) a recommendation, endorsement, or suitability determination regarding any investment, strategy, or transaction; or (iv) an invitation to engage in any investment activity.
-      </p>
+<footer>
+  <div>© 2026 Numera Capital LLC</div>
+  <div>All Rights Reserved</div>
+</footer>
 
-      <p>
-        Any products or services referenced, if any, are not offered to any person in any jurisdiction where such offer, solicitation, purchase, or sale would be unlawful under applicable laws or regulations, or would require registration, licensing, or authorization. Access to this website may be restricted by laws and regulations in certain jurisdictions; persons who access this site are responsible for informing themselves about and observing any such restrictions.
-      </p>
-
-      <p>
-        Investing involves substantial risk, including the possible loss of principal. Past performance is not indicative of future results. Hypothetical, simulated, or illustrative information, if any, may not reflect actual trading and may be subject to limitations and assumptions. No representation is made that any investment strategy will achieve its objectives or avoid losses.
-      </p>
-
-      <p>
-        To the maximum extent permitted by applicable law, Numera Capital and its affiliates disclaim all liability for any loss, damage, cost, or expense arising out of or related to any use of, reliance upon, or inability to use this website or its contents. All information is provided “as is” and without warranties of any kind.
-      </p>
-
-      <p>
-        Communications via email or this website do not create a client relationship, fiduciary relationship, or advisory relationship. Do not send confidential or time-sensitive information through this website.
-      </p>
-    </section>
-
-    <footer>
-      <div>© 2026 Numera Capital LLC</div>
-      <div>All Rights Reserved</div>
-    </footer>
-  </main>
+</main>
 </body>
 </html>
